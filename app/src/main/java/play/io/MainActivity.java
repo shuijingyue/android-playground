@@ -1,72 +1,40 @@
 package play.io;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
-import android.content.res.AssetFileDescriptor;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import play.io.adapter.RouteAdapter;
+import play.io.repository.entities.Route;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MediaPlayer mMediaPlayer;
     private final static String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mMediaPlayer = new MediaPlayer();
-        playAssetsAudio("music.mp3");
+        RecyclerView recyclerView = findViewById(R.id.root);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        RouteAdapter adapter = new RouteAdapter();
+        adapter.setRoutes(createRoutes());
+        recyclerView.setAdapter(adapter);
     }
 
-    private void playRawAudio() {
-        mMediaPlayer = MediaPlayer.create(this, R.raw.music);
-        mMediaPlayer.start(); // no need to call prepare(); create() does that for you
-    }
-
-    private void playAssetsAudio(final String name) {
-        AssetFileDescriptor fd = null;
-        try {
-            fd = getAssets().openFd(name);
-            mMediaPlayer = new MediaPlayer();
-            mMediaPlayer.reset();
-            mMediaPlayer.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
-            mMediaPlayer.prepareAsync();
-            mMediaPlayer.setOnPreparedListener((MediaPlayer mediaPlayer) -> {
-                Log.d(TAG, "onPrepared: " + name);
-                mediaPlayer.start();
-                Log.d(TAG, "is playing: " + mediaPlayer.isPlaying());
-            });
-        } catch (Exception e) {
-            Log.d(TAG, "catch error");
-            try {
-                if (fd != null) {
-                    fd.close();
-                }
-            } catch (Exception e1) {
-                Log.e(TAG, "Exception close fd: ", e1);
-            }
-        } finally {
-            Log.d(TAG, "finally");
-            if (fd != null) {
-                try {
-                    fd.close();
-                } catch (IOException e) {
-                    Log.e(TAG, "Finally, close fd ", e);
-                }
-            }
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mMediaPlayer.stop();
-        mMediaPlayer.release();
+    private List<Route> createRoutes() {
+        List<Route> routes = new ArrayList<>();
+        Bundle webviewActivityExtra = new Bundle();
+        webviewActivityExtra.putString(WebviewActivity.EXTRA_KEY_URL, "https://www.laohu8.com/news/2104812125?lang=");
+        routes.add(new Route(WebviewActivity.class, webviewActivityExtra));
+        routes.add(new Route(MediaPlayerActivity.class));
+        return routes;
     }
 }
