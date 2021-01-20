@@ -59,12 +59,6 @@ public class WebviewFragment extends Fragment {
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop");
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
         Log.d(TAG, "onResume");
@@ -76,8 +70,24 @@ public class WebviewFragment extends Fragment {
         Log.d(TAG, "onPause");
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy");
+    }
+
     public void loadUrl(String url) {
         mWebView.loadUrl(url);
+    }
+
+    public void destroyWebView() {
+        mWebView.destroy();
     }
 
     @Override
@@ -152,11 +162,5 @@ public class WebviewFragment extends Fragment {
                 return true;
             }
         }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy: destroy");
     }
 }

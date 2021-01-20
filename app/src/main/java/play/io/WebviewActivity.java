@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 import play.io.fragments.WebviewFragment;
 
@@ -27,5 +28,10 @@ public class WebviewActivity extends AppCompatActivity {
         if (mExtra != null) {
             mWebviewFragment.loadUrl(mExtra.getString(EXTRA_KEY_URL));
         }
+
+        Button button = findViewById(R.id.destroy);
+        button.setOnClickListener((view) -> {
+            mWebviewFragment.destroyWebView();
+        });
     }
 }

@@ -6,9 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".WebviewActivity">
+
     <fragment
         android:id="@+id/webview_fragment"
         android:name="play.io.fragments.WebviewFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/destroy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="destroy"/>
 </LinearLayout>
