@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/library/android/Sdk/platforms/android-30/data/res/layout/simple_list_item_1.xml" value="0.3375" />
+        <entry key="..\:/library/android/Sdk/platforms/android-30/data/res/layout/simple_list_item_checked.xml" value="0.3375" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2759259259259259" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/drawable/bg_item_route.xml" value="0.28055555555555556" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/layout/activity_animation.xml" value="0.3375" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/layout/activity_counter.xml" value="0.3375" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/layout/activity_histogram.xml" value="0.3375" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/layout/activity_main.xml" value="0.3375" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/layout/activity_sample_display_stand.xml" value="0.18072916666666666" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/layout/appwidget_simple.xml" value="0.3375" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/layout/fragment_bitmap_allocation.xml" value="0.3375" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/layout/fragment_bitmap_scaling.xml" value="0.3375" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/layout/fragment_listview_animation.xml" value="0.3375" />
+        <entry key="..\:/workspace/android/AndroidPlayio/app/src/main/res/layout/fragment_webview.xml" value="0.3375" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

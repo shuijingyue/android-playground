@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AndroidPlayio</string>
+
+    <string name="view_property_animator">ViewPropertyAnimator</string>
+    <string name="transient_state">Transient State</string>
+
+    <string name="original_image">Original Image</string>
+    <string name="scaled_images">Scaled Images</string>
+
+    <string name="reuse_bitmap">Reuse Bitmap</string>
 </resources>
